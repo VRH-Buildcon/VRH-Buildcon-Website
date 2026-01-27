@@ -1,155 +1,96 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VRH Buildcon – Building Your Dreams</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
-    html{scroll-behavior:smooth}
-    body{background:radial-gradient(circle at top,#111,#000 60%);color:#fff;overflow-x:hidden}
-
-    /* HEADER */
-    header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.15)}
-    .nav-wrap{max-width:1200px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}
-    nav a{color:#fff;text-decoration:none;margin:0 14px;font-size:.9rem;position:relative}
-    nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:gold;transition:.3s}
-    nav a:hover::after{width:100%}
-    .logo img{height:60px}
-
-    /* HERO */
-    .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover fixed}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.8),#000)}
-    .hero-content{position:relative;z-index:2;max-width:800px;padding:20px}
-    .hero h1{font-size:3.5rem;color:gold}
-    .hero p{margin:15px 0 30px;color:#ddd;font-size:1.2rem}
-    .btn{padding:14px 34px;border-radius:40px;background:linear-gradient(135deg,gold,#caa300);color:#000;font-weight:600;text-decoration:none;transition:.3s}
-    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,215,0,.4)}
-
-    section{padding:100px 20px}
-    h2{text-align:center;color:gold;font-size:2.6rem;margin-bottom:30px}
-    p{color:#ccc;line-height:1.8}
-
-    /* ABOUT */
-    .about{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
-    .about img{width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.7)}
-
-    /* IMAGE STRIP */
-    .strip{display:flex;gap:20px;overflow-x:auto;padding:40px 0}
-    .strip img{height:260px;border-radius:20px;transition:.4s}
-    .strip img:hover{transform:scale(1.08)}
-
-    /* SERVICES */
-    .services{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,215,0,.15);border-radius:25px;padding:30px;text-align:center;transition:.4s;backdrop-filter:blur(10px)}
-    .card:hover{transform:translateY(-12px);box-shadow:0 25px 60px rgba(255,215,0,.25)}
-    .card img{width:100%;border-radius:15px;margin-top:20px}
-
-    /* COUNTERS */
-    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:1000px;margin:auto;text-align:center}
-    .stat h3{font-size:3rem;color:gold}
-
-    /* PROJECTS */
-    .projects{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-    .project{position:relative;overflow:hidden;border-radius:20px}
-    .project img{width:100%;transition:.4s}
-    .project:hover img{transform:scale(1.1)}
-    .project span{position:absolute;bottom:0;width:100%;padding:15px;background:linear-gradient(to top,#000,transparent);color:gold;font-weight:600}
-
-    /* CONTACT */
-    .contact{background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd') center/cover fixed;position:relative}
-    .contact::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85)}
-    .contact-box{position:relative;z-index:2;max-width:800px;margin:auto;text-align:center}
-
-    footer{text-align:center;padding:25px;color:#777}
-
-    /* FLOATING WHATSAPP */
-    .whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.5)}
-
-    @media(max-width:900px){.about{grid-template-columns:1fr}.hero h1{font-size:2.6rem}}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>VRH Buildcon</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg-top:#050505;
+--bg-bottom:#120b05;
+--card-glass:rgba(255,255,255,0.04);
+--accent:#b08d57; /* dark gold */
+--muted:#cfcfcf;
+--glass-shadow:0 18px 40px rgba(0,0,0,0.75);
+}
+html,body{margin:0;height:100%;font-family:'Poppins',sans-serif;color:#f3f3f3;
+background:linear-gradient(180deg,var(--bg-top),#0b0b0b 40%,var(--bg-bottom));background-attachment:fixed}
+.header{display:flex;justify-content:space-between;align-items:center;padding:22px 48px}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:56px;height:56px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;color:#000}
+.cta-top{background:var(--accent);border:none;color:#000;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer}
+.container{max-width:1200px;margin:36px auto;padding:0 28px 80px}
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:28px}
+.glass-card{background:var(--card-glass);backdrop-filter:blur(8px);box-shadow:var(--glass-shadow);border-radius:16px}
+.hero-card{padding:34px;display:flex;gap:28px}
+.headline{font-size:44px;font-weight:800;color:#fff}
+.subline{color:var(--muted);margin-bottom:16px}
+.btn-gold{background:var(--accent);color:#000;padding:12px 22px;border-radius:10px;border:none;font-weight:700;cursor:pointer}
+.side-card{padding:26px}
+.section-title{font-size:26px;margin:44px 0 16px;color:var(--accent)}
+.sched-card{padding:20px}
+.gallery-box{padding:20px}
+.thumb{width:120px;height:110px;background:#1a1a1a center/cover no-repeat;border-radius:8px}
+.contact-card{padding:20px}
+footer{text-align:center;color:#aaa;padding-bottom:40px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.headline{font-size:34px}}
+</style>
 </head>
 <body>
-
-<header>
-  <div class="nav-wrap">
-    <div class="logo"><img src="https://i.ibb.co/yjk967c/VRH-logo-black.png"></div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+<header class="header">
+<div class="brand">
+<div class="logo">VRH</div>
+<div>
+<h1>VRH Buildcon</h1>
+<p>Building Your Dreams</p>
+</div>
+</div>
+<button class="cta-top">Call Now</button>
 </header>
-
-<section class="hero">
-  <div class="hero-content">
-    <h1>Building Your Dreams</h1>
-    <p>Premium Construction, Interior & Consultancy Solutions</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </div>
-</section>
-
-<section id="about">
-  <h2>About VRH Buildcon</h2>
-  <div class="about">
-    <p>At VRH Buildcon, we transform spaces into landmarks of excellence. From luxury residences to commercial developments, our focus is quality, innovation, and trust. Every structure we build reflects precision engineering and timeless design.</p>
-    <img src="https://i.ibb.co/cXJ8jBcs/About-Us.jpg">
-  </div>
-</section>
-
-<section>
-  <div class="strip">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
-    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267">
-    <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471">
-    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858">
-  </div>
-</section>
-
-<section id="services">
-  <h2>Our Services</h2>
-  <div class="services">
-    <div class="card"><h3>Construction</h3><p>High-quality residential & commercial construction.</p><img src="https://i.ibb.co/Kcq0BFVc/Construction-image.jpg"></div>
-    <div class="card"><h3>Interior Design</h3><p>Luxury interiors blending beauty and function.</p><img src="https://i.ibb.co/jPx6pFSF/Interior-design.jpg"></div>
-    <div class="card"><h3>Consultancy</h3><p>Planning, approvals & project management.</p><img src="https://i.ibb.co/Rkw7DFL5/Consultary-Services.jpg"></div>
-  </div>
-</section>
-
-<section>
-  <div class="stats">
-    <div class="stat"><h3>150+</h3><p>Projects</p></div>
-    <div class="stat"><h3>10+</h3><p>Years Experience</p></div>
-    <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
-  </div>
-</section>
-
-<section id="projects">
-  <h2>Our Projects</h2>
-  <div class="projects">
-    <div class="project"><img src="https://i.ibb.co/67W53xnR/Residental.png"><span>Residential</span></div>
-    <div class="project"><img src="https://i.ibb.co/TDGt70MY/Commercial.png"><span>Commercial</span></div>
-    <div class="project"><img src="https://i.ibb.co/NnJw0kMf/Mixed.png"><span>Mixed Use</span></div>
-    <div class="project"><img src="https://i.ibb.co/MxFpgckT/Institutional.png"><span>Institutional</span></div>
-  </div>
-</section>
-
-<section id="contact" class="contact">
-  <div class="contact-box">
-    <h2>Contact Us</h2>
-    <p>B-705, Aditya Gateway, MR10 Road, Indore</p>
-    <p>📞 9826076143 | 9243464130 | 9111204111</p>
-    <p>✉️ vrhbuildcon@gmail.com</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2025 VRH Buildcon Indore</p>
-</footer>
-
-<a class="whatsapp" href="https://wa.me/919826076143">WhatsApp</a>
-
+<main class="container">
+<div class="two-col">
+<div class="hero-card glass-card">
+<div>
+<div class="headline">Premium Construction & Interior Solutions</div>
+<div class="subline">Residential • Commercial • Interior • Consultancy</div>
+<ul>
+<li>High-quality construction & design</li>
+<li>Modern technology & expert execution</li>
+<li>Trusted projects across Indore</li>
+</ul>
+<button class="btn-gold">Get Consultation</button>
+</div>
+</div>
+<aside class="side-card glass-card">
+<h3>Company Info</h3>
+<p>📍 Indore, Madhya Pradesh</p>
+<p>📞 9826076143</p>
+<p>✉️ vrhbuildcon@gmail.com</p>
+</aside>
+</div>
+<h2 class="section-title">Our Services</h2>
+<div class="two-col">
+<div class="glass-card sched-card">
+<h4>Construction</h4><p>Residential & commercial construction with premium materials.</p>
+</div>
+<div class="glass-card sched-card">
+<h4>Interior Design</h4><p>Modern, elegant, functional interior solutions.</p>
+</div>
+</div>
+<h2 class="section-title">Our Projects</h2>
+<div class="gallery-box glass-card">
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div>
+</div>
+</div>
+<h2 class="section-title">Contact Us</h2>
+<div class="contact-card glass-card">
+<p>B-705, Aditya Gateway, MR10 Road, Indore</p>
+<p>Phone: 9826076143, 9243464130, 9111204111</p>
+<p>Email: vrhbuildcon@gmail.com</p>
+</div>
+</main>
+<footer>© 2025 VRH Buildcon. All rights reserved.</footer>
 </body>
 </html>
