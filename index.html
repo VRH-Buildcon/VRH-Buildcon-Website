@@ -3,417 +3,153 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VRH Buildcon | Building Your Dreams</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
+  <title>VRH Buildcon – Building Your Dreams</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --gold: #d4af37;
-      --dark: #050505;
-      --dark-soft: #0e0e0e;
-      --card: #161616;
-      --text-light: #cfcfcf;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background:
-        radial-gradient(circle at top, rgba(212,175,55,0.08), transparent 40%),
-        linear-gradient(180deg, #000 0%, #070707 50%, #000 100%);
-      color: #fff;
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif}
+    html{scroll-behavior:smooth}
+    body{background:radial-gradient(circle at top,#111,#000 60%);color:#fff;overflow-x:hidden}
 
     /* HEADER */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(0,0,0,0.75);
-      backdrop-filter: blur(10px);
-      padding: 14px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-
-    .logo img {
-      height: 70px;
-      filter: drop-shadow(0 0 8px rgba(212,175,55,0.3));
-    }
-
-    nav a {
-      margin-left: 28px;
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      position: relative;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--gold);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: var(--gold);
-      left: 0;
-      bottom: -6px;
-      transition: 0.3s;
-    }
-
-    nav a:hover::after { width: 100%; }
+    header{position:fixed;top:0;width:100%;z-index:1000;background:rgba(0,0,0,.6);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,215,0,.15)}
+    .nav-wrap{max-width:1200px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between}
+    nav a{color:#fff;text-decoration:none;margin:0 14px;font-size:.9rem;position:relative}
+    nav a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:gold;transition:.3s}
+    nav a:hover::after{width:100%}
+    .logo img{height:60px}
 
     /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
-      background:
-        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
-        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab') center/cover fixed;
-    }
+    .hero{height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover fixed}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.8),#000)}
+    .hero-content{position:relative;z-index:2;max-width:800px;padding:20px}
+    .hero h1{font-size:3.5rem;color:gold}
+    .hero p{margin:15px 0 30px;color:#ddd;font-size:1.2rem}
+    .btn{padding:14px 34px;border-radius:40px;background:linear-gradient(135deg,gold,#caa300);color:#000;font-weight:600;text-decoration:none;transition:.3s}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,215,0,.4)}
 
-    .hero h1 {
-      font-size: 3.8rem;
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-shadow: 0 0 30px rgba(212,175,55,0.35);
-    }
-
-    .hero p {
-      margin-top: 18px;
-      font-size: 1.35rem;
-      max-width: 800px;
-      color: var(--text-light);
-    }
-
-    .hero .cta {
-      margin-top: 45px;
-      padding: 16px 48px;
-      background: linear-gradient(135deg, #d4af37, #b8962e);
-      color: #000;
-      font-weight: 700;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: 0.4s;
-    }
-
-    .hero .cta:hover {
-      transform: translateY(-4px) scale(1.05);
-      box-shadow: 0 25px 60px rgba(212,175,55,0.5);
-    }
-
-    /* SECTIONS */
-    section {
-      padding: 110px 6%;
-    }
-
-    section h2 {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      color: var(--gold);
-      text-shadow: 0 0 20px rgba(212,175,55,0.25);
-    }
-
-    .subtitle {
-      text-align: center;
-      color: var(--text-light);
-      max-width: 900px;
-      margin: 0 auto 70px;
-      font-size: 1.05rem;
-    }
+    section{padding:100px 20px}
+    h2{text-align:center;color:gold;font-size:2.6rem;margin-bottom:30px}
+    p{color:#ccc;line-height:1.8}
 
     /* ABOUT */
-    .about {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 60px;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .about img {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 30px 70px rgba(0,0,0,0.8);
-    }
+    .about{max-width:1200px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .about img{width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,.7)}
 
     /* IMAGE STRIP */
-    .image-strip {
-      display: flex;
-      gap: 25px;
-      overflow-x: auto;
-      padding: 40px 0;
-      scrollbar-width: none;
-    }
-
-    .image-strip img {
-      min-width: 300px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 18px;
-      transition: 0.4s;
-    }
-
-    .image-strip img:hover {
-      transform: scale(1.08);
-    }
+    .strip{display:flex;gap:20px;overflow-x:auto;padding:40px 0}
+    .strip img{height:260px;border-radius:20px;transition:.4s}
+    .strip img:hover{transform:scale(1.08)}
 
     /* SERVICES */
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 45px;
-      max-width: 1200px;
-      margin: auto;
-    }
+    .services{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+    .card{background:rgba(255,255,255,.05);border:1px solid rgba(255,215,0,.15);border-radius:25px;padding:30px;text-align:center;transition:.4s;backdrop-filter:blur(10px)}
+    .card:hover{transform:translateY(-12px);box-shadow:0 25px 60px rgba(255,215,0,.25)}
+    .card img{width:100%;border-radius:15px;margin-top:20px}
 
-    .service {
-      background: linear-gradient(180deg, #181818, #0f0f0f);
-      border-radius: 22px;
-      overflow: hidden;
-      transition: 0.4s;
-    }
-
-    .service:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 35px 80px rgba(0,0,0,0.8);
-    }
-
-    .service img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
-    }
-
-    .service-content {
-      padding: 28px;
-    }
-
-    .service-content h3 {
-      color: var(--gold);
-      margin-bottom: 12px;
-    }
-
-    /* STATS */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.03);
-      padding: 40px 20px;
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-    }
-
-    .stat h3 {
-      font-size: 3rem;
-      color: var(--gold);
-    }
+    /* COUNTERS */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;max-width:1000px;margin:auto;text-align:center}
+    .stat h3{font-size:3rem;color:gold}
 
     /* PROJECTS */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 45px;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    .project {
-      background: var(--card);
-      border-radius: 22px;
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .project img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-    }
-
-    .project h4 {
-      color: var(--gold);
-      margin: 22px 0 12px;
-    }
-
-    .project p {
-      color: var(--text-light);
-      padding: 0 22px 30px;
-    }
+    .projects{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
+    .project{position:relative;overflow:hidden;border-radius:20px}
+    .project img{width:100%;transition:.4s}
+    .project:hover img{transform:scale(1.1)}
+    .project span{position:absolute;bottom:0;width:100%;padding:15px;background:linear-gradient(to top,#000,transparent);color:gold;font-weight:600}
 
     /* CONTACT */
-    .contact {
-      background:
-        linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.95)),
-        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd') center/cover fixed;
-      text-align: center;
-    }
+    .contact{background:url('https://images.unsplash.com/photo-1504307651254-35680f356dfd') center/cover fixed;position:relative}
+    .contact::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.85)}
+    .contact-box{position:relative;z-index:2;max-width:800px;margin:auto;text-align:center}
 
-    .contact p { margin: 12px 0; }
+    footer{text-align:center;padding:25px;color:#777}
 
     /* FLOATING WHATSAPP */
-    .whatsapp {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25d366;
-      color: #fff;
-      padding: 14px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-      z-index: 999;
-    }
+    .whatsapp{position:fixed;bottom:25px;right:25px;background:#25D366;color:#fff;padding:14px 18px;border-radius:50px;text-decoration:none;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 
-    footer {
-      background: #000;
-      text-align: center;
-      padding: 22px;
-      color: #777;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.6rem; }
-      nav { display: none; }
-    }
+    @media(max-width:900px){.about{grid-template-columns:1fr}.hero h1{font-size:2.6rem}}
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <img src="https://i.ibb.co/yjk967c/VRH-logo-black.png" alt="VRH Buildcon">
+  <div class="nav-wrap">
+    <div class="logo"><img src="https://i.ibb.co/yjk967c/VRH-logo-black.png"></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </div>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </nav>
 </header>
 
 <section class="hero">
-  <h1>Building Your Dreams</h1>
-  <p>Luxury Construction, Interior & Consultancy Solutions Crafted with Precision and Trust.</p>
-  <a href="#contact" class="cta">Start Your Project</a>
+  <div class="hero-content">
+    <h1>Building Your Dreams</h1>
+    <p>Premium Construction, Interior & Consultancy Solutions</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </div>
 </section>
 
 <section id="about">
   <h2>About VRH Buildcon</h2>
-  <p class="subtitle">We design, build, and deliver spaces that define modern living.</p>
   <div class="about">
-    <div>
-      <p>
-        VRH Buildcon stands for excellence in construction, interior design, and consultancy.
-        We combine architectural innovation, premium materials, and expert execution to
-        create landmarks that inspire trust and admiration.
-      </p>
-    </div>
+    <p>At VRH Buildcon, we transform spaces into landmarks of excellence. From luxury residences to commercial developments, our focus is quality, innovation, and trust. Every structure we build reflects precision engineering and timeless design.</p>
     <img src="https://i.ibb.co/cXJ8jBcs/About-Us.jpg">
   </div>
+</section>
 
-  <div class="image-strip">
-    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994">
+<section>
+  <div class="strip">
+    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c">
+    <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267">
     <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471">
-    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c">
-    <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858">
   </div>
 </section>
 
 <section id="services">
   <h2>Our Services</h2>
-  <p class="subtitle">Complete construction solutions under one roof.</p>
   <div class="services">
-    <div class="service">
-      <img src="https://i.ibb.co/Kcq0BFVc/Construction-image.jpg">
-      <div class="service-content">
-        <h3>Construction</h3>
-        <p>Residential, commercial, and turnkey projects delivered with unmatched quality.</p>
-      </div>
-    </div>
-    <div class="service">
-      <img src="https://i.ibb.co/jPx6pFSF/Interior-design.jpg">
-      <div class="service-content">
-        <h3>Interior Design</h3>
-        <p>Elegant, functional interiors that enhance lifestyle and productivity.</p>
-      </div>
-    </div>
-    <div class="service">
-      <img src="https://i.ibb.co/Rkw7DFL5/Consultary-Services.jpg">
-      <div class="service-content">
-        <h3>Consultancy</h3>
-        <p>Strategic planning, approvals, and execution support from start to finish.</p>
-      </div>
-    </div>
+    <div class="card"><h3>Construction</h3><p>High-quality residential & commercial construction.</p><img src="https://i.ibb.co/Kcq0BFVc/Construction-image.jpg"></div>
+    <div class="card"><h3>Interior Design</h3><p>Luxury interiors blending beauty and function.</p><img src="https://i.ibb.co/jPx6pFSF/Interior-design.jpg"></div>
+    <div class="card"><h3>Consultancy</h3><p>Planning, approvals & project management.</p><img src="https://i.ibb.co/Rkw7DFL5/Consultary-Services.jpg"></div>
   </div>
 </section>
 
 <section>
-  <h2>Our Achievements</h2>
   <div class="stats">
-    <div class="stat"><h3>50+</h3><p>Projects Completed</p></div>
+    <div class="stat"><h3>150+</h3><p>Projects</p></div>
     <div class="stat"><h3>10+</h3><p>Years Experience</p></div>
     <div class="stat"><h3>100%</h3><p>Client Satisfaction</p></div>
-    <div class="stat"><h3>25+</h3><p>Expert Team</p></div>
   </div>
 </section>
 
 <section id="projects">
   <h2>Our Projects</h2>
-  <p class="subtitle">A portfolio that reflects craftsmanship and trust.</p>
   <div class="projects">
-    <div class="project"><img src="https://i.ibb.co/67W53xnR/Residental.png"><h4>Residential</h4><p>Premium homes built for modern lifestyles.</p></div>
-    <div class="project"><img src="https://i.ibb.co/TDGt70MY/Commercial.png"><h4>Commercial</h4><p>Smart spaces for business excellence.</p></div>
-    <div class="project"><img src="https://i.ibb.co/NnJw0kMf/Mixed.png"><h4>Mixed Use</h4><p>Integrated living and working environments.</p></div>
-    <div class="project"><img src="https://i.ibb.co/MxFpgckT/Institutional.png"><h4>Institutional</h4><p>Purpose-driven public infrastructure.</p></div>
+    <div class="project"><img src="https://i.ibb.co/67W53xnR/Residental.png"><span>Residential</span></div>
+    <div class="project"><img src="https://i.ibb.co/TDGt70MY/Commercial.png"><span>Commercial</span></div>
+    <div class="project"><img src="https://i.ibb.co/NnJw0kMf/Mixed.png"><span>Mixed Use</span></div>
+    <div class="project"><img src="https://i.ibb.co/MxFpgckT/Institutional.png"><span>Institutional</span></div>
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <p>B-705, Aditya Gateway, MR10 Road, Indore – 452001</p>
-  <p>📞 9826076143 | 9243464130 | 9111204111</p>
-  <p>✉ <a href="mailto:vrhbuildcon@gmail.com" style="color:var(--gold)">vrhbuildcon@gmail.com</a></p>
+  <div class="contact-box">
+    <h2>Contact Us</h2>
+    <p>B-705, Aditya Gateway, MR10 Road, Indore</p>
+    <p>📞 9826076143 | 9243464130 | 9111204111</p>
+    <p>✉️ vrhbuildcon@gmail.com</p>
+  </div>
 </section>
 
-<a class="whatsapp" href="https://wa.me/919826076143">WhatsApp Us</a>
-
 <footer>
-  <p>© 2025 VRH Buildcon Indore. All Rights Reserved.</p>
+  <p>© 2025 VRH Buildcon Indore</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/919826076143">WhatsApp</a>
 
 </body>
 </html>
