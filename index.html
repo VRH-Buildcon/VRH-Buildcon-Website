@@ -1,299 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
- 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VRH Buildcon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>VRH Buildcon | Building Your Dreams</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --gold: #d4af37;
+      --dark: #000;
+      --dark-soft: #111;
+      --card: #1a1a1a;
+      --text-light: #ccc;
+    }
+
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
       font-family: 'Montserrat', sans-serif;
+      scroll-behavior: smooth;
     }
+
     body {
-      background-color: #000;
+      background: var(--dark);
       color: #fff;
+      line-height: 1.7;
     }
+
+    /* HEADER */
     header {
-      background-color: #111;
-      padding: 20px;
-      text-align: center;
-    }
-    .logo img {
-      height: 80px;
-      width: auto;
-    }
-    nav {
-      margin-top: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
-      background-blend-mode: overlay;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    .hero h1 {
-      font-size: 3rem;
-      color: gold;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 10px;
-    }
-    .section {
-      padding: 60px 20px;
-    }
-    .section h2 {
-      color: gold;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .section p {
-      text-align: center;
-    }
-    .services {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(0,0,0,0.9);
+      backdrop-filter: blur(6px);
+      padding: 15px 5%;
       display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-    }
-    .service {
-      flex: 1 1 250px;
-      margin: 10px;
-      padding: 20px;
-      background-color: #222;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .service img {
-      margin-top: 15px;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .content-wrapper {
-      display: flex;
-      flex-wrap: wrap;
       align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo img {
+      height: 70px;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      left: 0;
+      bottom: -6px;
+      transition: 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
-      gap: 40px;
-      text-align: left;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://images.unsplash.com/photo-1503387762-592deb58ef4e') center/cover no-repeat;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 2px;
+    }
+
+    .hero p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      max-width: 700px;
+      color: var(--text-light);
+    }
+
+    .hero .cta {
+      margin-top: 40px;
+      padding: 14px 40px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .hero .cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(212,175,55,0.4);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 5%;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 20px;
+      color: var(--gold);
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-light);
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 50px;
+      align-items: center;
       max-width: 1200px;
       margin: auto;
     }
-    .content-wrapper .text,
-    .content-wrapper .image {
-      flex: 1 1 500px;
-    }
-    .content-wrapper .image img {
+
+    .about img {
       width: 100%;
-      max-width: 500px;
-      border-radius: 10px;
+      border-radius: 15px;
     }
-    .reverse {
-      flex-direction: row-reverse;
-    }
-    .text-only {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-    .grid {
+
+    /* SERVICES */
+    .services {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 40px;
       max-width: 1200px;
       margin: auto;
     }
+
+    .service {
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: 0.4s;
+    }
+
+    .service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+
+    .service img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 25px;
+    }
+
+    .service-content h3 {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
     .project {
+      background: var(--card);
+      border-radius: 18px;
+      overflow: hidden;
       text-align: center;
     }
+
     .project img {
       width: 100%;
-      height: auto;
-      border-radius: 8px;
+      height: 220px;
+      object-fit: cover;
     }
-    .project-title {
-      font-size: 1.3rem;
-      color: gold;
-      font-weight: bold;
-      margin-top: 20px;
+
+    .project h4 {
+      color: var(--gold);
+      margin: 20px 0 10px;
     }
-    .project-desc {
-      font-size: 1rem;
-      color: #ccc;
-      margin-top: 10px;
+
+    .project p {
+      color: var(--text-light);
+      padding: 0 20px 30px;
     }
-    .contact {
-      background-color: #111;
-      color: #fff;
-      padding: 20px;
+
+    /* WHY CHOOSE US */
+    .why {
+      max-width: 1000px;
+      margin: auto;
       text-align: center;
     }
+
+    .why p {
+      margin-top: 20px;
+      color: var(--text-light);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: var(--dark-soft);
+      text-align: center;
+    }
+
     .contact p {
       margin: 10px 0;
     }
+
+    /* FOOTER */
     footer {
-      background-color: #000;
+      background: #000;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       color: #777;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.6rem; }
+      nav { display: none; }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="logo">
-      <img src="https://i.ibb.co/yjk967c/VRH-logo-black.png" alt="VRH Buildcon Logo">
+
+<header>
+  <div class="logo">
+    <img src="https://i.ibb.co/yjk967c/VRH-logo-black.png" alt="VRH Buildcon">
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Building Your Dreams</h1>
+  <p>Premium Construction, Interior & Consultancy Solutions Built on Trust, Precision, and Excellence.</p>
+  <a href="#contact" class="cta">Get in Touch</a>
+</section>
+
+<section id="about">
+  <h2>About VRH Buildcon</h2>
+  <p class="subtitle">Crafting landmarks that define quality, innovation, and timeless design.</p>
+
+  <div class="about">
+    <div>
+      <p>
+        VRH Buildcon is a forward-thinking construction and design company committed to delivering projects that combine
+        structural excellence with architectural elegance. From residential and commercial developments to interiors
+        and consultancy services, we transform ideas into enduring realities.
+      </p>
     </div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#projects">Projects</a>
-      <a href="#quality">Quality</a>
-      <a href="#team">Team</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <img src="https://i.ibb.co/cXJ8jBcs/About-Us.jpg" alt="About VRH Buildcon">
+  </div>
+</section>
 
-  <section class="hero">
-    <h1>Building Your Dreams</h1>
-    <p>Top-tier Construction, Interior, and Consultary Solutions</p>
-  </section>
+<section id="services">
+  <h2>Our Services</h2>
+  <p class="subtitle">End-to-end solutions tailored to meet modern construction demands.</p>
 
-  <section id="about" class="section">
-    <h2>About Us</h2>
-    <div class="content-wrapper">
-      <div class="text">
-        <p>At VRH Buildcon, we are driven by the ambition to transform spaces into landmarks of excellence. Established with a vision to redefine the standards of construction, interior design, and consultancy, we stand at the forefront of innovation, precision, and unwavering commitment to quality. With each project we undertake, we aim to turn dreams into reality — constructing not just buildings, but foundations of trust and lasting relationships.
-
-With a proven track record across a wide spectrum of projects — from luxurious residential complexes to cutting-edge commercial spaces — VRH Buildcon has emerged as a name synonymous with reliability and distinction. We blend modern technology, architectural expertise, and the finest craftsmanship to deliver projects that reflect sophistication, durability, and elegance.
-Our vision is to be recognized as one of the most respected and innovative construction firms in the industry. We aspire to set new benchmarks in construction and design, while staying true to our values of integrity, sustainability, and client satisfaction. By continuously pushing the boundaries of what’s possible, we aim to be a leader that shapes skylines and transforms communities.
-</p>
-      </div>
-      <div class="image">
-        <img src="https://i.ibb.co/cXJ8jBcs/About-Us.jpg" alt="About Us Image">
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service">
+  <div class="services">
+    <div class="service">
+      <img src="https://i.ibb.co/Kcq0BFVc/Construction-image.jpg">
+      <div class="service-content">
         <h3>Construction</h3>
-        <p>We specialize in high-quality construction services, including new builds, structural engineering, renovations, and turnkey projects. Using cutting-edge materials, modern machinery, and an experienced workforce, we guarantee structural integrity and timely delivery.</p>
-        <img src="https://i.ibb.co/Kcq0BFVc/Construction-image.jpg" alt="Construction Image">
+        <p>Residential, commercial, and turnkey construction executed with precision, safety, and efficiency.</p>
       </div>
-      <div class="service">
+    </div>
+
+    <div class="service">
+      <img src="https://i.ibb.co/jPx6pFSF/Interior-design.jpg">
+      <div class="service-content">
         <h3>Interior Design</h3>
-        <p>Our design team brings artistic flair and functional design together to create interiors that inspire. We pay attention to every detail — from aesthetics and ergonomics to lighting and material finishes — to deliver environments that enhance lifestyles and productivity.
-
-</p>
-        <img src="https://i.ibb.co/jPx6pFSF/Interior-design.jpg" alt="Interior Design Image">
-      </div>
-      <div class="service">
-        <h3>Consultary Services</h3>
-        <p>We provide strategic consultancy and project management services to ensure your vision is executed flawlessly. From feasibility studies to regulatory approvals and cost control, we act as your trusted partner throughout the construction journey.</p>
-        <img src="https://i.ibb.co/Rkw7DFL5/Consultary-Services.jpg" alt="Consultary Services Image">
+        <p>Elegant, functional, and personalized interiors designed to elevate living and workspaces.</p>
       </div>
     </div>
-  </section>
 
-  <section id="projects" class="section">
-    <h2 style="color: gold; font-size: 2.5rem; margin-bottom: 10px; text-align: center;">OUR PROJECTS</h2>
-    <p class="subtitle" style="color: #ccc; font-size: 1.1rem; text-align: center; max-width: 700px; margin: 0 auto 50px;">
-      Explore our diverse portfolio of completed and ongoing projects, showcasing our commitment to quality craftsmanship.
+    <div class="service">
+      <img src="https://i.ibb.co/Rkw7DFL5/Consultary-Services.jpg">
+      <div class="service-content">
+        <h3>Consultancy</h3>
+        <p>Professional guidance, planning, and project management from concept to completion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Our Projects</h2>
+  <p class="subtitle">A portfolio that reflects trust, craftsmanship, and innovation.</p>
+
+  <div class="projects">
+    <div class="project">
+      <img src="https://i.ibb.co/67W53xnR/Residental.png">
+      <h4>Residential Developments</h4>
+      <p>Modern homes built with comfort, durability, and aesthetics in mind.</p>
+    </div>
+
+    <div class="project">
+      <img src="https://i.ibb.co/TDGt70MY/Commercial.png">
+      <h4>Commercial Spaces</h4>
+      <p>Smartly designed offices and business spaces that inspire productivity.</p>
+    </div>
+
+    <div class="project">
+      <img src="https://i.ibb.co/NnJw0kMf/Mixed.png">
+      <h4>Mixed-Use Projects</h4>
+      <p>Integrated developments blending residential, retail, and work environments.</p>
+    </div>
+
+    <div class="project">
+      <img src="https://i.ibb.co/MxFpgckT/Institutional.png">
+      <h4>Institutional Buildings</h4>
+      <p>Purpose-driven structures for education, healthcare, and public use.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <h2>Why Choose VRH Buildcon</h2>
+  <div class="why">
+    <p>
+      ✔ Uncompromising Quality & Safety Standards<br>
+      ✔ Client-Centric Approach<br>
+      ✔ Experienced Architects & Engineers<br>
+      ✔ Modern Technology & Sustainable Practices<br>
+      ✔ Timely Project Delivery
     </p>
-    <div class="grid">
-      <div class="project">
-        <img src="https://i.ibb.co/67W53xnR/Residental.png" alt="Residential Complex">
-        <div class="project-title">Residential Complex</div>
-        <p class="project-desc">
-          A state-of-the-art residential complex featuring modern amenities and sustainable design.
-        </p>
-      </div>
-      <div class="project">
-        <img src="https://i.ibb.co/TDGt70MY/Commercial.png" alt="Commercial Office">
-        <div class="project-title">Commercial Office</div>
-        <p class="project-desc">
-          A contemporary office building designed to provide functional and flexible workspaces.
-        </p>
-      </div>
-      <div class="project">
-        <img src="https://i.ibb.co/NnJw0kMf/Mixed.png" alt="Mixed-Use">
-        <div class="project-title">Mixed-Use</div>
-        <p class="project-desc">
-          A vibrant mixed-use development combining residential, retail, and office spaces.
-        </p>
-      </div>
-      <div class="project">
-        <img src="https://i.ibb.co/MxFpgckT/Institutional.png" alt="Institutional Building">
-        <div class="project-title">Institutional Building</div>
-        <p class="project-desc">
-          An architecturally striking building built for education, culture, or public services.
-        </p>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <section id="why-choose-us" class="section">
-    <div class="text-only">
-      <h2>Why Choose Us</h2>
-      <p>Uncompromising Quality
-Quality is not a feature — it is the foundation of our work ethic. Every project we complete is a testament to our obsession with detail, craftsmanship, and excellence.
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>B-705, Aditya Gateway, MR10 Road, Indore – 452001</p>
+  <p>📞 9826076143 | 9243464130 | 9111204111</p>
+  <p>✉ <a href="mailto:vrhbuildcon@gmail.com" style="color:var(--gold)">vrhbuildcon@gmail.com</a></p>
+</section>
 
-Client-Centric Approach
-We believe that every client is unique and every project is personal. Our team works closely with clients to understand their needs, preferences, and objectives. We listen, we advise, and we deliver.
-
-Experienced Team
-Our team comprises highly skilled architects, engineers, designers, and project managers who bring decades of industry experience. Their collective expertise allows us to deliver complex projects with efficiency and precision.
-
-Innovation at the Core
-We adopt the latest technologies and sustainable building practices to ensure that our projects are future-ready. From green buildings to smart home integrations, we are constantly evolving with the times.
-
-On-Time Delivery
-We respect your time and investment. Through rigorous planning, constant monitoring, and efficient resource management, we ensure that our projects are delivered on or before the promised timelines.</p>
-    </div>
-  </section>
-
-  <section id="quality" class="section">
-    <div class="content-wrapper reverse">
-      <div class="text">
-        <h2>Our Commitment to Quality</h2>
-        <p>We follow the highest standards of quality control and safety. Every material is carefully selected, and every process is supervised by experienced engineers and project managers. Our work reflects not just structural strength but also attention to aesthetics and functionality.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="team" class="section">
-    <div class="text-only">
-      <h2>Our Team</h2>
-      <p>Our team is our strength. From visionary leaders and skilled architects to experienced site engineers and craftsmen — each member brings professionalism and passion to the table. We work as one cohesive unit to deliver excellence in every project we undertake.</p>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <p>Address: B-705, Aditya Gateway, MR10 Road, Indore - 452001</p>
-    <p>Phone: 9826076143, 9243464130, 9111204111</p>
-    <p>Email: <a href="mailto:vrhbuildcon@gmail.com" style="color: gold;">vrhbuildcon@gmail.com</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 VRH Buildcon Indore. All rights reserved.</p>
-  </footer>
-
+<footer>
+  <p>© 2025 VRH Buildcon Indore. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
