@@ -1,0 +1,142 @@
+{
+  "identity": {
+    "name": "VRH Buildcon",
+    "tagline": "Building your dreams",
+    "archetype": "Jewel & Luxury (Construction Edition)",
+    "tone": "Solid, Trustworthy, Premium, Elegant, Industrial",
+    "mission": "To merge the solidity of construction with the elegance of luxury design."
+  },
+  "typography": {
+    "headings": {
+      "family": "Playfair Display",
+      "weights": ["400", "700"],
+      "usage": "All section titles, hero text, and major calls to action. Use tracking-tight for sizes above 32px.",
+      "fallback": "serif"
+    },
+    "body": {
+      "family": "Manrope",
+      "weights": ["300", "400", "500", "600"],
+      "usage": "Paragraphs, navigation, buttons, and UI elements.",
+      "fallback": "sans-serif"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-bold tracking-tighter leading-none",
+      "h2": "text-4xl md:text-5xl font-semibold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "p": "text-base md:text-lg leading-relaxed text-muted-foreground"
+    }
+  },
+  "colors": {
+    "palette": {
+      "primary": "#D4AF37",
+      "primary_foreground": "#000000",
+      "background": "#050505",
+      "surface": "#121212",
+      "surface_highlight": "#1E1E1E",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A1A1AA",
+      "border": "#27272A",
+      "accent": "#D4AF37"
+    },
+    "gradients": {
+      "gold_shimmer": "linear-gradient(45deg, #D4AF37 0%, #FFE5B4 50%, #D4AF37 100%)",
+      "dark_fade": "linear-gradient(to bottom, rgba(5,5,5,0) 0%, #050505 100%)"
+    },
+    "rules": [
+      "Use Gold (#D4AF37) sparingly for CTAs, borders, and key highlights.",
+      "Backgrounds must be deep black (#050505) or very dark grey (#121212), never pure white.",
+      "Text on dark backgrounds must be White (#FFFFFF) or Light Grey (#A1A1AA).",
+      "Avoid gradients for main backgrounds; use subtle noise or grain textures instead."
+    ]
+  },
+  "layout_strategies": {
+    "grid_system": "Bento Grid (Mode A: Tetris)",
+    "spacing": "Generous. Use p-12 to p-24 for section padding.",
+    "container": "max-w-7xl mx-auto px-4 md:px-8",
+    "sections": {
+      "hero": "Full-screen immersive with video/image background and gold typography overlay.",
+      "services": "Asymmetric grid (Bento) highlighting different services with distinct visual weight.",
+      "projects": "Masonry layout with category filters. Images must be high-res and zoom on hover.",
+      "testimonials": "Horizontal scroll or large quote cards with gold accents.",
+      "contact": "Split layout: Map/Info on one side, Dark Glass form on the other."
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#D4AF37] text-black hover:bg-[#B5952F] rounded-none uppercase tracking-widest font-bold px-8 py-4 transition-all duration-300",
+      "secondary": "border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black rounded-none uppercase tracking-widest px-8 py-4 transition-all duration-300",
+      "ghost": "text-white hover:text-[#D4AF37] transition-colors duration-200"
+    },
+    "cards": {
+      "style": "bg-[#121212] border border-[#27272A] hover:border-[#D4AF37]/50 transition-all duration-300",
+      "hover_effect": "Slight lift (-translate-y-1) and shadow-lg on hover."
+    },
+    "inputs": {
+      "style": "bg-[#0A0A0A] border border-[#27272A] focus:border-[#D4AF37] text-white rounded-none h-12"
+    },
+    "navigation": {
+      "style": "Fixed glassmorphism (backdrop-blur-md bg-black/70) with gold active states."
+    }
+  },
+  "visual_enhancers": {
+    "textures": "Use subtle noise overlays on dark backgrounds to prevent banding and add 'film' quality.",
+    "borders": "1px solid borders in dark grey (#27272A) to define structure.",
+    "shadows": "Soft, diffuse shadows for depth (shadow-2xl black/50).",
+    "motion": {
+      "scroll": "Use Lenis for smooth scrolling.",
+      "reveal": "Staggered fade-up animations for text and images.",
+      "hover": "Images scale up (1.05) on hover; Text color shifts to gold."
+    }
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1763405739542-02991ab5416c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwyfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwc2lsaG91ZXR0ZSUyMHN1bnNldHxlbnwwfHx8fDE3Njk3ODk0Nzl8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Construction cranes silhouette against sunset - evokes 'Building Dreams'",
+      "category": "hero"
+    },
+    "services_interiors": {
+      "url": "https://images.unsplash.com/photo-1765745518673-b562b7304a53?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBtb2Rlcm4lMjBpbnRlcmlvciUyMGRlc2lnbiUyMGRhcmslMjBnb2xkfGVufDB8fHx8MTc2OTc4OTQ3Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Luxury marble and wood bathroom interior",
+      "category": "services"
+    },
+    "services_construction": {
+      "url": "https://images.unsplash.com/photo-1589306324130-9a32c9770cba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHwxfHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwc2lsaG91ZXR0ZSUyMHN1bnNldHxlbnwwfHx8fDE3Njk3ODk0Nzl8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Silhouette of tower crane - represents heavy construction",
+      "category": "services"
+    },
+    "abstract_texture": {
+      "url": "https://images.unsplash.com/photo-1747831338811-8773622b064b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxhcmNoaXRlY3R1cmFsJTIwYmx1ZXByaW50JTIwZGFyayUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzY5Nzg5NDgxfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Zigzag architectural pattern - good for section backgrounds",
+      "category": "background"
+    },
+    "project_1": {
+      "url": "https://images.unsplash.com/photo-1765745518752-68a289300789?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2Rlcm4lMjBpbnRlcmlvciUyMGRlc2lnbiUyMGRhcmslMjBnb2xkfGVufDB8fHx8MTc2OTc4OTQ3Nnww&ixlib=rb-4.1.0&q=85",
+      "description": "Modern vanity - Interior Project",
+      "category": "portfolio"
+    },
+    "project_2": {
+      "url": "https://images.unsplash.com/photo-1769472387928-9a5dba09011a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzV8MHwxfHNlYXJjaHw0fHxjb25zdHJ1Y3Rpb24lMjBzaXRlJTIwc2lsaG91ZXR0ZSUyMHN1bnNldHxlbnwwfHx8fDE3Njk3ODk0Nzl8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Construction site at sunset - Building Project",
+      "category": "portfolio"
+    }
+  },
+  "instructions_to_main_agent": [
+    "INSTALL FONTS: Add '@import url(\"https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Playfair+Display:wght@400;700&display=swap\");' to index.css.",
+    "THEME SETUP: Force Dark Mode. In tailwind.config.js, extend colors with the palette provided above.",
+    "COMPONENTS: Use Shadcn for complex interactions (Forms, Dialogs) but style them with the 'Jewel & Luxury' palette (No default slate/zinc).",
+    "LAYOUT: Do NOT use standard Bootstrap columns. Use the 'Bento Grid' strategy for the Services and Portfolio sections.",
+    "NAVBAR: Create a floating glass navbar. It should be transparent at the top and become glass (backdrop-blur) on scroll.",
+    "FOOTER: Massive footer with 'VRH' in huge typography (text-[15vw]) at the bottom.",
+    "FORMS: Style inputs with square edges (rounded-none) and gold focus borders.",
+    "ANIMATION: Use 'framer-motion' for scroll reveals. Text should slide up and fade in.",
+    "IMAGES: Use the provided image URLs. Do NOT use placeholders."
+  ],
+  "universal_guidelines": [
+    "Avoid 'AI Slop': No generic centered layouts, no purple/teal gradients.",
+    "Dark colors must be solid or subtle noise, NOT gradients.",
+    "Use 2-3x more spacing than typical designs.",
+    "Every interaction needs a micro-animation.",
+    "All interactive elements must have 'data-testid'.",
+    "Use 'sonner' for toasts."
+  ]
+}
